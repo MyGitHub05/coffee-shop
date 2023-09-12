@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Document</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      height: 100vh;
+      background-color: gray;
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+    }
+    a:hover{
+      color: orange;
+    }
+    header{
+      position: relative;
+      padding: 0 2rem;
+    }
+
+    .navbar{
+      width: 100%;
+      height: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar .logo a{
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar .links{
+      display: flex;
+      gap: 2rem;
+    }
+    .navbar .toggle_btn{
+      color: white;
+      font-size: 1.5rem;
+      display: none;
+      cursor: pointer;
+    }
+    .action_btn{
+      background-color: orange;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .action_btn:hover{
+      scale: 1.05;
+      color: white;
+    }
+    .action_btn:active{
+      scale: 0.95;
+    }
+     /*responsive design*/
+     .dropdown_menu{
+      display: none;
+      position: absolute;
+      right: 2rem;
+      top: 60px;
+      width: 300px;
+      height: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     }
+
+     .dropdown_menu.open{
+      height: 240px;
+     }
+     .dropdown_menu li{
+      padding: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     }
+     .dropdown_menu .action_btn{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+     }
+
+    /*responsive design*/
+    @media(max-width: 992px){
+      .navbar .links,
+      .navbar .action_btn{
+        display: none;
+      }
+      .navbar .toggle_btn{
+        display: block;
+      }
+      .dropdown_menu{
+        display: block;
+      }
+    }
+    @media(max-width: 576px){
+      .dropdown_menu{
+        left: 2rem;
+        width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">WEb dev creative</a></div>
+      <ul class="links">
+        <li><a href="hero">Home</a></li>
+        <li><a href="about">about</a></li>
+        <li><a href="services">services</a></li>
+        <li><a href="contact">contact</a></li>
+      </ul>
+      <a href="#" class="action_btn">Get started</a>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="hero">Home</a></li>
+      <li><a href="about">about</a></li>
+      <li><a href="services">services</a></li>
+      <li><a href="contact">contact</a></li>
+      <li><a href="#" class="action_btn">Get started</a></li>
+    </div>
+  </header>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn');
+    const toggleBtnIcon = document.querySelector('.toggle_btn i');
+    const dropDownMenu = document.querySelector('.dropdown_menu');
+
+    toggleBtn.addEventListener('click', () =>{
+      dropDownMenu.classList.toggle('open');
+
+      const isOpen = dropDownMenu.classList.contains("open");
+
+      toggleBtnIcon.classList = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"
+    });
+  </script>
+  
+</body>
+</html>
