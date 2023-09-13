@@ -4,6 +4,7 @@ header{
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  position: relative;
 
 }
 nav{
@@ -15,7 +16,7 @@ nav{
 }
 .logo{
   height: 100%;
-  width: 100px;
+  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +48,7 @@ nav{
 
 .right{
   height: 100%;
-  width: 150px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,6 +64,9 @@ nav{
   justify-content: center;
   font-size: 35px;
   cursor: pointer;
+}
+.cart i{
+  font-size: 25px;
 }
 
 .profile{
@@ -91,7 +95,7 @@ nav{
   justify-content: center;
   font-size: 35px;
   cursor: pointer;
-  
+  display: none;
 }
 
 .navigation li a:hover{
@@ -99,17 +103,64 @@ nav{
   text-decoration: underline;
 }
 
+/*menu scroll down*/
+.dropDownMenu{
+  padding: 10px 10px;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  width: 300px;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  display: none;
+  transition: height 0.2 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropDownMenu.open{
+  height: 290px;
+  display: block;
+}
+.dropDownMenu li a{
+  border-radius: 7px;
+  margin-bottom: 7px;
+  height: 40px;
+  padding: 0 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'ABeeZee', sans-serif;
+  font-family: 'Amita', cursive;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+.dropDownMenu li a:hover{
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
 @media(max-width: 1185px){
   .navigation li a{
     font-size: 10px;
   }
 }
-@media(max-width: 940px){
+@media(max-width: 1002px){
  .navigation, .profile, .cart{
   display: none;
  }
 .right{
   width: 90px;
 }
+.hamburger{
+  display: block;
+}
+}
+@media(max-width: 576px){
+  .dropDownMenu{
+    left: 2rem;
+    width: unset;
+  }
 }
 

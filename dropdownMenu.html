@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .dropdown{
+      border: 1px solid black;
+      position: relative;
+    }
+    .dropdownMenu{
+      border: 1px solid black;
+      position: absolute;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <div>click me to drop</div>
+    <div class="dropdownMenu">
+      <p>name</p>
+      <p>lastname</p>
+      <p>papa mo</p>
+    </div>
+  </div>
+
+
+  <script>
+    const dropDown = document.querySelector('.dropdown');
+    const dropDownMenu = document.querySelector('.dropdownMenu');
+
+    let isDisplay = true;
+    dropDown.addEventListener('click', () => {
+      if(isDisplay){
+        isDisplay = false;
+        dropDownMenu.style.display = "block";
+      }
+    });
+  </script>
+  
+</body>
+</html>
